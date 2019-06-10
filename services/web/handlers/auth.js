@@ -7,7 +7,6 @@ const querystring = require('querystring');
 const escapeHtml = require('escape-html');
 const fetch = require('node-fetch');
 const { text } = require('micro');
-const { URL } = require('url');
 const CSRF = require('csrf');
 
 const providers = require('../lib/providers');
@@ -233,7 +232,7 @@ async function tokens(context) {
   const { objects: tokens } = await context.storageApi.listTokens({
     for: user,
     bearer: user,
-    page: Number(context.url.query.page) || 0
+    page: Number(context.url.searchParams.get('page')) || 0
   });
   const cliLoginSession = context.session.get('cli');
 

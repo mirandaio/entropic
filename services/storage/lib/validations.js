@@ -2,7 +2,6 @@
 
 const validateLegacy = require('validate-npm-package-name');
 const validate = require('npm-user-validate');
-const { URL } = require('url');
 const joi = require('joi');
 
 // I'm wrapping this up in a little file module because I want to hide the implementation.

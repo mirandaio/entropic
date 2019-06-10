@@ -6,7 +6,6 @@
 
 const response = require('./response');
 const fmw = require('find-my-way');
-const URL = require('url');
 
 function router(options) {
   const wayfinder = fmw(options);
@@ -15,7 +14,7 @@ function router(options) {
 
     return context => {
       const { request } = context;
-      const { pathname } = URL.parse(request.url);
+      const { pathname } = new URL(request.url);
 
       const match = wayfinder.find(request.method, pathname);
 

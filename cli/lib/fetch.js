@@ -3,7 +3,6 @@
 module.exports = fetchWithAgent;
 
 const dns = require('dns');
-const URL = require('url').URL;
 const http = require('http');
 const fetch = require('node-fetch');
 const https = require('https');
